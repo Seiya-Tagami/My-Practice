@@ -1,6 +1,7 @@
 @use "../../foundation/variables" as *;
 
 .card-container {
+  cursor: pointer;
   display: inline-block;
   width: 160px;
   height: 180px;
@@ -9,7 +10,8 @@
   line-height: 200px;
   font-size: 48px;
   font-weight: bold;
-  perspective: 100px;
+  perspective: 150px;
+  user-select: none;
 }
 
 .card {
@@ -34,13 +36,9 @@
   }
 
   &-front{
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    position: absolute;
-    backface-visibility: hidden;
+    @extend .card-back; 
     transform: rotateY(180deg);
     background: $color-card-front;
+    color: $color-card-front-font;
   }
 }
