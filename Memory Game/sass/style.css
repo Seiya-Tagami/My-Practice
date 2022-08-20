@@ -123,4 +123,10 @@ body {
   transform: rotateY(180deg);
   background: black;
   color: #03a9f4;
+}
+
+#result-message {
+  display: none;
+  text-align: center;
+  font-size: 64px;
 }/*# sourceMappingURL=style.css.map */

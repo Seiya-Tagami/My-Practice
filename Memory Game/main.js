@@ -40,7 +40,7 @@
     if(firstCard != null && secondCard != null){
       return;
     }
-    
+
     if(card.className.indexOf("open") === -1){
       card.className = "card open";
     } else {
@@ -69,5 +69,8 @@
   }
 
 })();
+
+//1人プレイモードはタイムアタック
+//2人プレイモードは対戦形式でポイント制　→　もう一つ変数を用意してあげて、剰余で条件分岐かな
 
 
