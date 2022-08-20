@@ -1,0 +1,8 @@
+@use "../foundation/variables" as *;
+
+#stage {
+  width: 800px;
+  height: 800px;
+  margin: 40px auto;
+  background: $color-stage;
+}
