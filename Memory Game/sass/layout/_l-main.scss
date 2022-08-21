@@ -4,5 +4,44 @@
   width: 800px;
   height: 800px;
   margin: 40px auto;
-  background: $color-stage;
+  position: relative;
+  overflow: hidden;
+  background: $color-white;
+  z-index: 0;
+
+  &:before { 
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 80%;
+      margin: 3% -10% 0;
+      background: $color-dark-blue;
+      -webkit-transform-origin: right center;
+      -ms-transform-origin: right center;
+      transform-origin: right center;
+      -webkit-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+      z-index: -1;
+  }
+
+  // &:after { 
+  //     content: '';
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 80%;
+  //     height: 80%;
+  //     margin: 3% -10% 0;
+  //     background: $color-dark-red;
+  //     -webkit-transform-origin: right top;
+  //     -ms-transform-origin: right top;
+  //     transform-origin: right top;
+  //     -webkit-transform: rotate(-50deg);
+  //     -ms-transform: rotate(-50deg);
+  //     transform: rotate(-50deg);
+  //     z-index: -2;
+  // }
 }

@@ -4,13 +4,14 @@
   const cards = [];
   const stage = document.getElementById('stage')
   let flipCount = 0,
+  correctCount = 0,
   firstCard = null,
-  secondCard = null,
-  correctCount = 0;
+  secondCard = null;
   
-  init();
+  // init();
 
   function init(){
+
     for(let i = 1; i <= 8; i++){
       cards[cards.length] = createCard(i);
       cards[cards.length] = createCard(i);
@@ -71,6 +72,6 @@
 })();
 
 //1人プレイモードはタイムアタック
-//2人プレイモードは対戦形式でポイント制　→　もう一つ変数を用意してあげて、剰余で条件分岐かな
+//2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな
 
 

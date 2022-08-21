@@ -1,0 +1,47 @@
+@use "../../foundation/variables" as *;
+
+.start {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 100px;
+  text-align: center;
+  // display: none;
+
+  &-container {
+    background: $color-light-gray;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  &-text {
+    width: 100%;
+    display: inline-block;
+    font-size: 64px;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  &-button {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 20px;
+    color: $color-light-gray;
+
+    &-content {
+      padding: 16px;
+      background: $color-purple;
+      opacity: .8;
+      user-select: none;
+      cursor: pointer;
+      border: 5px solid #A0522D;
+      border-radius: 5px;
+
+      &:hover {
+        opacity: 1;
+        transition: opacity .3s;
+      }
+    }
+  }
+}

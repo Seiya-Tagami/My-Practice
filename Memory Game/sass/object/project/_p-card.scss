@@ -32,13 +32,13 @@
     border-radius: 10px;
     position: absolute; //positionで重ねる
     backface-visibility: hidden; //ひっくり返したものが見えなくなる
-    background: $color-card-back;
+    background: $color-light-blue;
   }
 
   &-front{
     @extend .card-back; 
     transform: rotateY(180deg);
-    background: $color-card-front;
-    color: $color-card-front-font;
+    background: $color-black;
+    color: $color-light-blue;
   }
 }
