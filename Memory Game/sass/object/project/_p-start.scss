@@ -1,19 +1,19 @@
 @use "../../foundation/variables" as *;
 
-.start {
+.p-start {
   width: 70%;
   margin: 0 auto;
   padding-top: 100px;
   text-align: center;
   // display: none;
 
-  &-container {
+  &__container {
     background: $color-light-gray;
     padding: 20px;
     border-radius: 10px;
   }
   
-  &-text {
+  &__text {
     width: 100%;
     display: inline-block;
     font-size: 64px;
@@ -21,7 +21,7 @@
     user-select: none;
   }
 
-  &-button {
+  &__button {
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@
     gap: 20px;
     color: $color-light-gray;
 
-    &-content {
+    &__item {
       padding: 16px;
       background: $color-purple;
       opacity: .8;

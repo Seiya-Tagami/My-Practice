@@ -20,6 +20,8 @@
   position: relative;
   transform-style: preserve-3d; //要素の子要素を3D空間に配置する
   transition: transform .8s;
+  border: 3px solid $color-green;
+  border-radius: 12px;
   
   &.open {
     transform: rotateY(180deg);
@@ -32,13 +34,13 @@
     border-radius: 10px;
     position: absolute; //positionで重ねる
     backface-visibility: hidden; //ひっくり返したものが見えなくなる
-    background: $color-light-blue;
+    background: $color-light-green;
   }
 
   &-front{
     @extend .card-back; 
     transform: rotateY(180deg);
-    background: $color-black;
-    color: $color-light-blue;
+    background: $color-dark-white;
+    color: $color-black;
   }
 }

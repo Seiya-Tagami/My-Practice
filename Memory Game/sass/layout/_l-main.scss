@@ -1,39 +1,7 @@
-@use "../foundation/variables" as *;
 
-#stage {
-  width: 800px;
-  height: 800px;
-  margin: 40px auto;
-  position: relative;
-  overflow: hidden;
-  background: $color-gray;
-  z-index: 0;
-
-  &:before { 
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 120%;
-      height: 80%;
-      margin: 3% -10% 0;
-      background: $color-dark-blue;
-      transform-origin: right center;
-      transform: rotate(-3deg);
-      z-index: -1; //memo:いまいち何で上手くいってるかわからん
-  }
-
-  &:after { 
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 125%;
-      height: 80%;
-      margin: -15% -11% 0;
-      background: $color-dark-red;
-      transform-origin: left;
-      transform: rotate(23deg);
-      z-index: -2; //memo:いまいち何で上手くいってるかわからん
-  }
+.main-container {
+  max-width: 1110px;
+  margin: 32px auto;
+  display: flex;
+  gap: 10px;
 }

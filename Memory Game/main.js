@@ -1,17 +1,14 @@
-(function(){
-  'use strict'
-
+'use strict'
+{
   const cards = [];
-  const stage = document.getElementById('stage')
+  const stage = document.getElementById('p-stage')
   let flipCount = 0,
   correctCount = 0,
   firstCard = null,
-  secondCard = null;
+  secondCard = null,
+  countDown = 3;
   
-  // init();
-
   function init(){
-
     for(let i = 1; i <= 8; i++){
       cards[cards.length] = createCard(i);
       cards[cards.length] = createCard(i);
@@ -69,9 +66,30 @@
     secondCard = null; 
   }
 
-})();
+  const soloPlay = document.getElementById('soloPlay');
+  const start = document.querySelector('.p-start');
+  soloPlay.addEventListener('click', function(){
+    start.style.display = 'none';
+    gameStart();
+  })
 
-//1人プレイモードはタイムアタック
+
+  function gameStart(){
+    const timer = document.querySelector('.p-sub-container__item');
+    timer.innerHTML = countDown;
+    countDown--;
+    const cleartimeoutId = setTimeout(gameStart, 1000)
+
+    if(countDown === -1){
+      clearTimeout(cleartimeoutId);
+      timer.innerHTML = '始め！'
+      init();
+    }
+  }
+
+}
+
+//1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
 //2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな
 
 
