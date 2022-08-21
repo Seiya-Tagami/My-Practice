@@ -188,6 +188,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.p-sub__item__result-button {
+  font-size: 24px;
+}
 
 #p-sub__item__result-rank {
   font-size: 64px;

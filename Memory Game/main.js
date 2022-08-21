@@ -76,7 +76,7 @@
 
 
   const timer1 = document.querySelector('.p-sub__item__timer');
-  
+
   function gameStart(){
     timer1.style.borderBottom = "double 5px #BDC0BA";
     timer1.innerHTML = countDown;
@@ -101,10 +101,31 @@
     if(correctCount === 8) {
       clearTimeout(cleartimeoutId);
       timer1.innerHTML = '終了！'
+      showResult();
     }
+  }
 
+  function showResult() {
+    const result = document.querySelector('.p-sub__item__result');
+    result.innerHTML = '<span>【評価】</span> <span id="p-sub__item__result-rank"></span>';
+    result.style.borderBottom = 'double 5px #BDC0BA';
+    const rank = document.getElementById('p-sub__item__result-rank');
+    if(countUp <= 40){
+      rank.innerHTML = 'S';
+      rank.style.color = '#EFBB24';
+    } else if(countUp <= 50){
+      rank.innerHTML = 'A';
+      rank.style.color = '#6D2E5B';
+    } else if (countUp <= 60){
+      rank.innerHTML = 'B';
+      rank.style.color = '#2B5F75';
+    } else {
+      rank.innerHTML = 'C';
+      rank.style.color = '#00896C';
+    }
   }
 }
+
 
 //1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
 //2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな
