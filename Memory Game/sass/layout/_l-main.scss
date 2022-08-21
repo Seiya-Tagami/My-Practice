@@ -6,7 +6,7 @@
   margin: 40px auto;
   position: relative;
   overflow: hidden;
-  background: $color-white;
+  background: $color-gray;
   z-index: 0;
 
   &:before { 
@@ -18,30 +18,22 @@
       height: 80%;
       margin: 3% -10% 0;
       background: $color-dark-blue;
-      -webkit-transform-origin: right center;
-      -ms-transform-origin: right center;
       transform-origin: right center;
-      -webkit-transform: rotate(-3deg);
-      -ms-transform: rotate(-3deg);
       transform: rotate(-3deg);
-      z-index: -1;
+      z-index: -1; //memo:いまいち何で上手くいってるかわからん
   }
 
-  // &:after { 
-  //     content: '';
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 80%;
-  //     height: 80%;
-  //     margin: 3% -10% 0;
-  //     background: $color-dark-red;
-  //     -webkit-transform-origin: right top;
-  //     -ms-transform-origin: right top;
-  //     transform-origin: right top;
-  //     -webkit-transform: rotate(-50deg);
-  //     -ms-transform: rotate(-50deg);
-  //     transform: rotate(-50deg);
-  //     z-index: -2;
-  // }
+  &:after { 
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 125%;
+      height: 80%;
+      margin: -15% -11% 0;
+      background: $color-dark-red;
+      transform-origin: left;
+      transform: rotate(23deg);
+      z-index: -2; //memo:いまいち何で上手くいってるかわからん
+  }
 }
