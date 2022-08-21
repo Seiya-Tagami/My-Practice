@@ -8,8 +8,23 @@
   border-radius: 15px;
 }
 
-.p-sub-container {
+.p-sub__item {
   text-align: center;
   font-size: 64px;
   padding: 24px;
+  user-select: none;
+
+  & span {
+    font-size: 24px;
+  }
+
+  &__result{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#p-sub__item__result-rank{
+  font-size: 64px;
 }

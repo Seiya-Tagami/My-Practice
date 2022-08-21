@@ -4,6 +4,7 @@
   const stage = document.getElementById('p-stage')
   let flipCount = 0,
   correctCount = 0,
+  countUp = 0,
   firstCard = null,
   secondCard = null,
   countDown = 3;
@@ -74,19 +75,35 @@
   })
 
 
+  const timer1 = document.querySelector('.p-sub__item__timer');
+  
   function gameStart(){
-    const timer = document.querySelector('.p-sub-container__item');
-    timer.innerHTML = countDown;
+    timer1.style.borderBottom = "double 5px #BDC0BA";
+    timer1.innerHTML = countDown;
     countDown--;
     const cleartimeoutId = setTimeout(gameStart, 1000)
 
     if(countDown === -1){
       clearTimeout(cleartimeoutId);
-      timer.innerHTML = '始め！'
+      timer1.innerHTML = '始め！'
       init();
+      countTime();
     }
   }
 
+  function countTime(){
+    const timer2 = document.querySelector('.p-sub__item__timer2');
+    timer2.style.borderBottom = "double 5px #BDC0BA";
+    timer2.innerHTML = `${countUp}<span>秒経過</span>`;
+    countUp++;
+    const cleartimeoutId = setTimeout(countTime, 1000)
+
+    if(correctCount === 8) {
+      clearTimeout(cleartimeoutId);
+      timer1.innerHTML = '終了！'
+    }
+
+  }
 }
 
 //1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
