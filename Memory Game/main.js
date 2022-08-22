@@ -23,7 +23,7 @@
   }
 
   function createCard(num) {
-    const inner ='<div class="card-back">?</div><div class="card-front">*</div>';
+    const inner ='<div class="card-back">？</div><div class="card-front">*</div>'; 
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = inner.replace('*',num);
@@ -135,7 +135,7 @@
   const result = document.querySelector('.p-sub__item__result');
 
   function showResult() {
-    result.innerHTML = '<span>【評価】</span><span id="p-sub__item__result-rank"></span>';
+    result.innerHTML = '<span id="p-sub__item__result-title">【評価】</span><span id="p-sub__item__result-rank"></span>';
     result.style.borderBottom = 'double 5px #BDC0BA';
     const rank = document.getElementById('p-sub__item__result-rank');
     if(countUp <= 35){
@@ -144,10 +144,10 @@
       else if(countUp <= 40){
         rank.innerHTML = 'S';
       rank.style.color = '#533d5b';
-    } else if(countUp <= 50){
+    } else if(countUp <= 45){
       rank.innerHTML = 'A';
       rank.style.color = '#6d2e5b';
-    } else if (countUp <= 60){
+    } else if (countUp <= 50){
       rank.innerHTML = 'B';
       rank.style.color = '#2b5f75';
     } else {
@@ -157,10 +157,11 @@
   }
 
   function rePlay(){
+    const resultTitle = document.getElementById('p-sub__item__result-title');
+    resultTitle.innerHTML = '【前回の評価】'
     countDown = 3;
     countUp = 0;
     correctCount = 0;
-    // result.firstChild.innerHTML.replace('【評価】','【前回の評価】');
     clickReplay.classList.add("stop","stop2");
     setTimeout(gameStart,500);
     setTimeout(clickReplay.classList.remove('stop'),500); //memo:ここらへんもっと良い方法ある気がする
