@@ -188,8 +188,25 @@ body {
   display: flex;
   flex-direction: column;
 }
-.p-sub__item__result-button {
+.p-sub__item__replay {
+  margin: auto auto 0px;
   font-size: 24px;
+  color: #dff0ff;
+  display: none;
+  gap: 8px;
+}
+.p-sub__item__replay-button {
+  display: inline-block;
+  background: #4c5483;
+  border: 3px solid #A0522D;
+  border-radius: 5px;
+  padding: 4px 10px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.p-sub__item__replay-button:hover {
+  opacity: 1;
+  transition: opacity 0.4s;
 }
 
 #p-sub__item__result-rank {

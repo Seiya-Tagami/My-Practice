@@ -10,14 +10,16 @@
   countDown = 3;
   
   function init(){
+
     for(let i = 1; i <= 8; i++){
       cards[cards.length] = createCard(i);
       cards[cards.length] = createCard(i);
-    }
+    };
+
     while(cards.length){
       const pos = Math.floor(Math.random()*cards.length);
       stage.appendChild(cards.splice(pos, 1)[0]); //memo:spliceの返値は配列
-    }
+    };
   }
 
   function createCard(num) {
@@ -67,32 +69,53 @@
     secondCard = null; 
   }
 
-  const soloPlay = document.getElementById('soloPlay');
+
+
   const start = document.querySelector('.p-start');
-  soloPlay.addEventListener('click', function(){
+  const replay = document.querySelector('.p-sub__item__replay');
+  const clickReplay =  document.getElementById('js-replay');
+  
+  document.getElementById('soloPlay').addEventListener('click', function(){
     start.style.display = 'none';
     gameStart();
+    clickReplay.addEventListener('click', function(){
+      rePlay();
+    })
   })
 
 
-  const timer1 = document.querySelector('.p-sub__item__timer');
+
+  const timer1 = document.querySelector('.p-sub__item__count-down');
 
   function gameStart(){
+    if(clickReplay.classList.contains('stop')){
+      return;
+    }
+
+    while(stage.firstChild){
+      stage.removeChild(stage.firstChild);
+    };
+
     timer1.style.borderBottom = "double 5px #BDC0BA";
     timer1.innerHTML = countDown;
     countDown--;
-    const cleartimeoutId = setTimeout(gameStart, 1000)
+    const cleartimeoutId = setTimeout(gameStart, 1000);
 
     if(countDown === -1){
       clearTimeout(cleartimeoutId);
       timer1.innerHTML = '始め！'
+      replay.style.display ='flex';
       init();
+      clickReplay.classList.remove('stop2');
       countTime();
     }
   }
 
   function countTime(){
-    const timer2 = document.querySelector('.p-sub__item__timer2');
+    if(clickReplay.classList.contains('stop2')){
+      return;
+    }
+    const timer2 = document.querySelector('.p-sub__item__count-up');
     timer2.style.borderBottom = "double 5px #BDC0BA";
     timer2.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
@@ -105,8 +128,9 @@
     }
   }
 
+  const result = document.querySelector('.p-sub__item__result');
+
   function showResult() {
-    const result = document.querySelector('.p-sub__item__result');
     result.innerHTML = '<span>【評価】</span> <span id="p-sub__item__result-rank"></span>';
     result.style.borderBottom = 'double 5px #BDC0BA';
     const rank = document.getElementById('p-sub__item__result-rank');
@@ -124,10 +148,22 @@
       rank.style.color = '#00896C';
     }
   }
+
+  function rePlay(){
+    countDown = 3;
+    countUp = 0;
+    correctCount = 0;
+    result.innerHTML = '';
+    clickReplay.classList.add("stop","stop2");
+    setTimeout(gameStart,500);
+    setTimeout(clickReplay.classList.remove('stop'),500); //memo:ここらへんもっと良い方法ある気がする
+  }
 }
 
 
 //1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
 //2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな
 
+
+//やりなおすが押されたら、gameStartの処理をストップさせれば良い
 
