@@ -74,12 +74,16 @@
   const start = document.querySelector('.p-start');
   const replay = document.querySelector('.p-sub__item__replay');
   const clickReplay =  document.getElementById('js-replay');
+  const clickBack = document.getElementById('js-back');
   
   document.getElementById('soloPlay').addEventListener('click', function(){
     start.style.display = 'none';
     gameStart();
     clickReplay.addEventListener('click', function(){
       rePlay();
+    })
+    clickBack.addEventListener('click', function(){
+      back();
     })
   })
 
@@ -92,8 +96,8 @@
       return;
     }
 
-    while(stage.firstChild){
-      stage.removeChild(stage.firstChild);
+    while(stage.firstChild){ //p-startまで消してしまうから改善
+      stage.removeChild(stage.firstChild); 
     };
 
     timer1.style.borderBottom = "double 5px #BDC0BA";
@@ -131,21 +135,24 @@
   const result = document.querySelector('.p-sub__item__result');
 
   function showResult() {
-    result.innerHTML = '<span>【評価】</span> <span id="p-sub__item__result-rank"></span>';
+    result.innerHTML = '<span>【評価】</span><span id="p-sub__item__result-rank"></span>';
     result.style.borderBottom = 'double 5px #BDC0BA';
     const rank = document.getElementById('p-sub__item__result-rank');
-    if(countUp <= 40){
-      rank.innerHTML = 'S';
-      rank.style.color = '#EFBB24';
+    if(countUp <= 35){
+      rank.innerHTML = 'S+';
+      rank.style.color = '#efBb24';}
+      else if(countUp <= 40){
+        rank.innerHTML = 'S';
+      rank.style.color = '#533d5b';
     } else if(countUp <= 50){
       rank.innerHTML = 'A';
-      rank.style.color = '#6D2E5B';
+      rank.style.color = '#6d2e5b';
     } else if (countUp <= 60){
       rank.innerHTML = 'B';
-      rank.style.color = '#2B5F75';
+      rank.style.color = '#2b5f75';
     } else {
       rank.innerHTML = 'C';
-      rank.style.color = '#00896C';
+      rank.style.color = '#00896c';
     }
   }
 
@@ -153,17 +160,22 @@
     countDown = 3;
     countUp = 0;
     correctCount = 0;
-    result.innerHTML = '';
+    // result.firstChild.innerHTML.replace('【評価】','【前回の評価】');
     clickReplay.classList.add("stop","stop2");
     setTimeout(gameStart,500);
     setTimeout(clickReplay.classList.remove('stop'),500); //memo:ここらへんもっと良い方法ある気がする
   }
+
+  function back(){
+    while(stage.firstChild){
+      stage.removeChild(stage.firstChild);
+    };
+    start.style.display = 'block'; 
+  }  
 }
 
 
 //1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
-//2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな
+//2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな？
 
-
-//やりなおすが押されたら、gameStartの処理をストップさせれば良い
 
