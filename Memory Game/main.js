@@ -75,7 +75,6 @@
   const start = document.querySelector('.p-start');
   const replay = document.querySelector('.p-sub__item__replay');
   const clickReplay =  document.getElementById('js-replay');
-  // const clickBack = document.getElementById('js-back');
   
   document.getElementById('soloPlay').addEventListener('click', function(){
     start.style.display = 'none';
@@ -83,9 +82,6 @@
     clickReplay.addEventListener('click', function(){
       rePlay();
     })
-    // clickBack.addEventListener('click', function(){
-    //   back();
-    // })
   })
 
 
@@ -168,14 +164,6 @@
     setTimeout(gameStart,500);
     setTimeout(clickReplay.classList.remove('stop'),500); //memo:ここらへんもっと良い方法ある気がする
   }
-
-  // function back(){
-  //     while(cardBox.firstChild){
-  //       cardBox.removeChild(cardBox.firstChild);
-  //     }
-      
-  //   start.style.display = 'block'; 
-  // }  
 }
 
 
