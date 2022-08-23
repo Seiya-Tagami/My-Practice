@@ -191,17 +191,18 @@ body {
 .p-sub__item__replay {
   margin: auto auto 0px;
   font-size: 24px;
-  color: #dff0ff;
   display: none;
   gap: 8px;
 }
 .p-sub__item__replay-button {
+  color: #dff0ff;
   display: inline-block;
   background: #4c5483;
   border: 3px solid #A0522D;
   border-radius: 5px;
   padding: 4px 10px;
   opacity: 0.8;
+  text-decoration: none;
   cursor: pointer;
 }
 .p-sub__item__replay-button:hover {

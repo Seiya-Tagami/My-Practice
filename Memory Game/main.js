@@ -1,7 +1,8 @@
 'use strict'
 {
   const cards = [];
-  const stage = document.getElementById('p-stage')
+  const stage = document.getElementById('p-stage');
+  const cardBox = document.getElementById('p-card-box');
   let flipCount = 0,
   correctCount = 0,
   countUp = 0,
@@ -18,16 +19,16 @@
 
     while(cards.length){
       const pos = Math.floor(Math.random()*cards.length);
-      stage.appendChild(cards.splice(pos, 1)[0]); //memo:spliceの返値は配列
+      cardBox.appendChild(cards.splice(pos, 1)[0]); //memo:spliceの返値は配列
     };
   }
-
+  
   function createCard(num) {
     const inner ='<div class="card-back">？</div><div class="card-front">*</div>'; 
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = inner.replace('*',num);
-    card.addEventListener('click', function(){ //memo:アロー関数で書けたりしないのかな？
+    card.addEventListener('click', function(){ 
       flipCard(this);
     });
     const container = document.createElement('div');
@@ -74,7 +75,7 @@
   const start = document.querySelector('.p-start');
   const replay = document.querySelector('.p-sub__item__replay');
   const clickReplay =  document.getElementById('js-replay');
-  const clickBack = document.getElementById('js-back');
+  // const clickBack = document.getElementById('js-back');
   
   document.getElementById('soloPlay').addEventListener('click', function(){
     start.style.display = 'none';
@@ -82,9 +83,9 @@
     clickReplay.addEventListener('click', function(){
       rePlay();
     })
-    clickBack.addEventListener('click', function(){
-      back();
-    })
+    // clickBack.addEventListener('click', function(){
+    //   back();
+    // })
   })
 
 
@@ -95,10 +96,6 @@
     if(clickReplay.classList.contains('stop')){
       return;
     }
-
-    while(stage.firstChild){ //p-startまで消してしまうから改善
-      stage.removeChild(stage.firstChild); 
-    };
 
     timer1.style.borderBottom = "double 5px #BDC0BA";
     timer1.innerHTML = countDown;
@@ -157,6 +154,9 @@
   }
 
   function rePlay(){
+    while(cardBox.firstChild){
+      cardBox.removeChild(cardBox.firstChild)
+    }
     const resultTitle = document.getElementById('p-sub__item__result-title');
     if(resultTitle !== null){
       resultTitle.innerHTML = '【前回の評価】';//
@@ -169,12 +169,13 @@
     setTimeout(clickReplay.classList.remove('stop'),500); //memo:ここらへんもっと良い方法ある気がする
   }
 
-  function back(){
-    while(stage.firstChild){
-      stage.removeChild(stage.firstChild);
-    };
-    start.style.display = 'block'; 
-  }  
+  // function back(){
+  //     while(cardBox.firstChild){
+  //       cardBox.removeChild(cardBox.firstChild);
+  //     }
+      
+  //   start.style.display = 'block'; 
+  // }  
 }
 
 

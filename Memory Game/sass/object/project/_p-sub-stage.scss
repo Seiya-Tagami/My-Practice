@@ -27,17 +27,18 @@
   &__replay {
     margin: auto auto 0px;
     font-size: 24px;
-    color: $color-light-gray;
     display: none;
     gap: 8px;
 
     &-button {
+      color: $color-light-gray;
       display: inline-block;
       background: $color-purple;
       border: 3px solid $color-brawn;
       border-radius: 5px;
       padding: 4px 10px;
       opacity: 0.8;
+      text-decoration: none;
       cursor: pointer;
 
       &:hover {
