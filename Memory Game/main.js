@@ -158,7 +158,9 @@
 
   function rePlay(){
     const resultTitle = document.getElementById('p-sub__item__result-title');
-    resultTitle.innerHTML = '【前回の評価】'
+    if(resultTitle !== null){
+      resultTitle.innerHTML = '【前回の評価】';//
+    }
     countDown = 3;
     countUp = 0;
     correctCount = 0;
