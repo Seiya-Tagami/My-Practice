@@ -1,7 +1,7 @@
 'use strict'
 {
   const cards = [];
-  const stage = document.getElementById('p-stage');
+  // const stage = document.getElementById('p-stage');
   const cardBox = document.getElementById('p-card-box');
   let flipCount = 0,
   correctCount = 0,
@@ -75,7 +75,6 @@
   const start = document.querySelector('.p-start');
   const replay = document.querySelector('.p-sub__item__replay');
   const clickReplay =  document.getElementById('js-replay');
-  
   document.getElementById('soloPlay').addEventListener('click', function(){
     start.style.display = 'none';
     gameStart();
@@ -167,7 +166,7 @@
 }
 
 
-//1人プレイモードはタイムアタック → ランクS/A/B/Cで評価
-//2人プレイモードは対戦形式でポイント制 → もう一つ変数を用意してあげて、剰余で条件分岐かな？
+
+//2人プレイモードは対戦形式でポイント制 もう一つ変数を用意してあげて、剰余で条件分岐かな？
 
 
