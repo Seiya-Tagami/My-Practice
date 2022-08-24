@@ -12,8 +12,12 @@
   function init() {
     const cardpairNum = 8;
     for (let i = 1; i <= cardpairNum; i++) {
-      cards[cards.length] = createCard(i);
-      cards[cards.length] = createCard(i);
+      // cards[cards.length] = createCard(i);
+      // cards[cards.length] = createCard(i);
+      const cardA = createCard(i);
+      const cardB = createCard(i);
+      cards.push(cardA);
+      cards.push(cardB); //memo:こうすると上手くいった
     }
 
     while (cards.length) {
@@ -24,15 +28,15 @@
 
   function createCard(num) {
     const inner =
-      '<div class="card-back">？</div><div class="card-front">*</div>';
+      '<div class="p-card-back">？</div><div class="p-card-front">*</div>';
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "p-card";
     card.innerHTML = inner.replace("*", num);
     card.addEventListener("click", function () {
       flipCard(this);
     });
     const container = document.createElement("div");
-    container.className = "card-container";
+    container.className = "p-card-container";
     container.appendChild(card);
     return container;
     //memo:もしreturnがないと関数内で処理を行うのみで終了になってしまう。戻り値があることで処理結果を別の処理で使いまわすことができる。こうして、cardsの配列ができる。
@@ -44,7 +48,7 @@
     }
 
     if (card.className.indexOf("is-open") === -1) {
-      card.className = "card is-open";
+      card.classList.add("is-open");
     } else {
       return;
     }
@@ -65,8 +69,8 @@
     ) {
       correctCount++;
     } else {
-      firstCard.className = "card";
-      secondCard.className = "card";
+      firstCard.classList.remove("is-open");
+      secondCard.classList.remove("is-open");
     }
     firstCard = null;
     secondCard = null;
@@ -161,9 +165,6 @@
   }
 
   function rePlay() {
-    // while (cardBox.firstChild) {
-    //   cardBox.removeChild(cardBox.firstChild);
-    // }
     cardBox.innerHTML = "";
     const resultTitle = document.getElementById("p-menu__item__result-title");
     if (resultTitle !== null) {

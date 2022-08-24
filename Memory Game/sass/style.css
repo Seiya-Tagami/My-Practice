@@ -82,7 +82,35 @@ body {
   gap: 10px;
 }
 
-.card-container {
+.p-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  border: 3px solid #00896C;
+  border-radius: 12px;
+}
+.p-card.is-open {
+  transform: rotateY(180deg);
+}
+.p-card-back, .p-card-front {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: #69B0AC;
+}
+.p-card-front {
+  transform: rotateY(180deg);
+  background: #BDC0BA;
+  color: black;
+}
+
+.p-card-container {
   cursor: pointer;
   display: inline-block;
   width: 160px;
@@ -97,34 +125,6 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
-  border: 3px solid #00896C;
-  border-radius: 12px;
-}
-.card.is-open {
-  transform: rotateY(180deg);
-}
-.card-back, .card-front {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  background: #69B0AC;
-}
-.card-front {
-  transform: rotateY(180deg);
-  background: #BDC0BA;
-  color: black;
 }
 
 .p-stage {
