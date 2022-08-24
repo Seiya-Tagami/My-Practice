@@ -18,7 +18,7 @@
     font-size: 24px;
   }
 
-  &__result{
+  &__result {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -43,12 +43,12 @@
 
       &:hover {
         opacity: 1;
-        transition: opacity .4s;
+        transition: opacity 0.4s;
       }
     }
   }
 }
 
-#p-sub__item__result-rank{
+#p-sub__item__result-rank {
   font-size: 64px;
 }

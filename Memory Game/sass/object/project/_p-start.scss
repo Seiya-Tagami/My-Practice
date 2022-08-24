@@ -12,7 +12,7 @@
     padding: 20px;
     border-radius: 10px;
   }
-  
+
   &__text {
     width: 100%;
     display: inline-block;
@@ -21,7 +21,7 @@
     user-select: none;
   }
 
-    &__button {
+  &__button {
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@
     &__item {
       padding: 16px;
       background: $color-purple;
-      opacity: .8;
+      opacity: 0.8;
       user-select: none;
       cursor: pointer;
       border: 5px solid $color-brawn;
@@ -40,7 +40,7 @@
 
       &:hover {
         opacity: 1;
-        transition: opacity .3s;
+        transition: opacity 0.3s;
       }
     }
   }
