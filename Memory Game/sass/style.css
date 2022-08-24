@@ -170,7 +170,6 @@ body {
   background-color: #9B90C2;
   border-radius: 15px;
 }
-
 .p-menu__item {
   text-align: center;
   font-size: 64px;
@@ -258,4 +257,15 @@ body {
 .p-start__button__item:hover {
   opacity: 1;
   transition: opacity 0.3s;
+}
+
+.u-display__hidden {
+  display: none;
+}
+.u-display__flex {
+  display: flex;
+}
+
+.u-border__bottom {
+  border-bottom: 5px double #bdc0ba;
 }/*# sourceMappingURL=style.css.map */

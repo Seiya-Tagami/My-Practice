@@ -10,7 +10,8 @@
     countDown = 3;
 
   function init() {
-    for (let i = 1; i <= 8; i++) {
+    const cardpairNum = 8;
+    for (let i = 1; i <= cardpairNum; i++) {
       cards[cards.length] = createCard(i);
       cards[cards.length] = createCard(i);
     }
@@ -34,7 +35,7 @@
     container.className = "card-container";
     container.appendChild(card);
     return container;
-    //memo:もしreturnがないと関数内で処理を行うのみで終了になってしまう。戻り値があること処理結果を別の処理で使いまわすことができる。
+    //memo:もしreturnがないと関数内で処理を行うのみで終了になってしまう。戻り値があることで処理結果を別の処理で使いまわすことができる。こうして、cardsの配列ができる。
   }
 
   function flipCard(card) {
@@ -75,7 +76,7 @@
   const replay = document.querySelector(".p-menu__item__replay");
   const clickReplay = document.getElementById("js-replay");
   document.getElementById("js-soloPlay").addEventListener("click", function () {
-    start.style.display = "none";
+    start.classList.add("u-display__hidden");
     gameStart();
     clickReplay.addEventListener("click", function () {
       rePlay();
@@ -89,7 +90,7 @@
       return;
     }
 
-    timer1.style.borderBottom = "double 5px #BDC0BA";
+    timer1.classList.add("u-border__bottom");
     timer1.innerHTML = countDown;
     countDown--;
     const cleartimeoutId = setTimeout(gameStart, 1000);
@@ -97,7 +98,7 @@
     if (countDown === -1) {
       clearTimeout(cleartimeoutId);
       timer1.innerHTML = "始め！";
-      replay.style.display = "flex";
+      replay.classList.add("u-display__flex");
       init();
       clickReplay.classList.remove("stop2");
       countTime();
@@ -109,7 +110,7 @@
       return;
     }
     const timer2 = document.querySelector(".p-menu__item__count-up");
-    timer2.style.borderBottom = "double 5px #BDC0BA";
+    timer2.classList.add("u-border__bottom");
     timer2.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
     const cleartimeoutId = setTimeout(countTime, 1000);
@@ -126,23 +127,29 @@
   function showResult() {
     result.innerHTML =
       '<span id="p-menu__item__result-title">【評価】</span><span id="p-menu__item__result-rank"></span>';
-    result.style.borderBottom = "double 5px #BDC0BA";
+    result.classList.add("u-border__bottom");
     const rank = document.getElementById("p-menu__item__result-rank");
+    const colorGold = "#efBb24";
+    const colorPurple = "#533d5b";
+    const colorRed = "#6d2e5b";
+    const colorBlue = "#2b5f75";
+    const colorGreen = "#00896c";
+
     if (countUp <= 35) {
       rank.innerHTML = "S+";
-      rank.style.color = "#efBb24";
+      rank.style.color = colorGold;
     } else if (countUp <= 40) {
       rank.innerHTML = "S";
-      rank.style.color = "#533d5b";
+      rank.style.color = colorPurple;
     } else if (countUp <= 45) {
-      rank.innerHTML = "A";
-      rank.style.color = "#6d2e5b";
+      rank.innerHTML = colorRed;
+      rank.style.color = "";
     } else if (countUp <= 50) {
       rank.innerHTML = "B";
-      rank.style.color = "#2b5f75";
+      rank.style.color = colorBlue;
     } else {
       rank.innerHTML = "C";
-      rank.style.color = "#00896c";
+      rank.style.color = colorGreen;
     }
   }
 
@@ -153,7 +160,7 @@
     cardBox.innerHTML = "";
     const resultTitle = document.getElementById("p-menu__item__result-title");
     if (resultTitle !== null) {
-      resultTitle.textContent = "【前回の評価】"; //
+      resultTitle.textContent = "【前回の評価】";
     }
     countDown = 3;
     countUp = 0;

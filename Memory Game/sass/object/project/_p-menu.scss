@@ -6,44 +6,44 @@
   margin-top: 50px;
   background-color: $color-light-purple;
   border-radius: 15px;
-}
 
-.p-menu__item {
-  text-align: center;
-  font-size: 64px;
-  padding: 24px;
-  user-select: none;
+  &__item {
+    text-align: center;
+    font-size: 64px;
+    padding: 24px;
+    user-select: none;
 
-  & span {
-    font-size: 24px;
-  }
+    & span {
+      font-size: 24px;
+    }
 
-  &__result {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-  }
+    &__result {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
 
-  &__replay {
-    margin: auto auto 0px;
-    font-size: 24px;
-    display: none;
-    gap: 8px;
+    &__replay {
+      margin: auto auto 0px;
+      font-size: 24px;
+      display: none;
+      gap: 8px;
 
-    &-button {
-      color: $color-light-gray;
-      display: inline-block;
-      background: $color-purple;
-      border: 3px solid $color-brawn;
-      border-radius: 5px;
-      padding: 4px 10px;
-      opacity: 0.8;
-      text-decoration: none;
-      cursor: pointer;
+      &-button {
+        color: $color-light-gray;
+        display: inline-block;
+        background: $color-purple;
+        border: 3px solid $color-brawn;
+        border-radius: 5px;
+        padding: 4px 10px;
+        opacity: 0.8;
+        text-decoration: none;
+        cursor: pointer;
 
-      &:hover {
-        opacity: 1;
-        transition: opacity 0.4s;
+        &:hover {
+          opacity: 1;
+          transition: opacity 0.4s;
+        }
       }
     }
   }
