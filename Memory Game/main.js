@@ -1,7 +1,6 @@
 'use strict'
 {
   const cards = [];
-  // const stage = document.getElementById('p-stage');
   const cardBox = document.getElementById('p-card-box');
   let flipCount = 0,
   correctCount = 0,

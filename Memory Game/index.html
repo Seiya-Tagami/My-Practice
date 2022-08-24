@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Game</title>
-  <link rel="stylesheet" href="./sass/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
-</head>
-<body>
-  <main>
-    <div class="main-container">
-      <div id="p-stage">
-        <div id="p-card-box">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="./sass/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="l-main">
+        <div class="p-stage">
+          <div id="p-card-box"></div>
+          <div class="p-start">
+            <div class="p-start__container">
+              <span class="p-start__text"
+                >記憶力<br />チャレンジ！<br />～神経衰弱～</span
+              >
+              <ul class="p-start__button">
+                <li id="soloPlay" class="p-start__button__item">
+                  ひとりで遊ぶ
+                </li>
+                <li id="dualPlay" class="p-start__button__item">
+                  ふたりで遊ぶ
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ここに挿入 -->
         </div>
-        <div class="p-start">
-          <div class="p-start__container">
-          <span class="p-start__text">記憶力<br>チャレンジ！<br>～神経衰弱～</span>
-          <ul class="p-start__button">
-            <li id="soloPlay" class="p-start__button__item">ひとりで遊ぶ</li>
-            <li id="dualPlay" class="p-start__button__item">ふたりで遊ぶ</li>
+        <div id="p-sub-stage">
+          <ul class="p-sub__item">
+            <li class="p-sub__item__count-down"></li>
+            <li class="p-sub__item__count-up"></li>
+            <li class="p-sub__item__result"></li>
+            <li class="p-sub__item__replay">
+              <div id="js-replay" class="p-sub__item__replay-button">
+                やりなおす
+              </div>
+              <a href="" class="p-sub__item__replay-button">選択画面へ戻る</a>
+            </li>
           </ul>
         </div>
-        </div>
-        
-      <!-- ここに挿入 -->
-    
-    </div>
-    <div id="p-sub-stage">
-      <ul class="p-sub__item">
-        <li class="p-sub__item__count-down"></li>
-        <li class="p-sub__item__count-up"></li>
-        <li class="p-sub__item__result"></li>
-        <li class="p-sub__item__replay">
-          <div id="js-replay" class="p-sub__item__replay-button">やりなおす</div>
-          <a href="" class="p-sub__item__replay-button">選択画面へ戻る</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  </main>
-    <script src="main.js"></script>
-</body>
+      </div>
+    </main>
+  </body>
 </html>
