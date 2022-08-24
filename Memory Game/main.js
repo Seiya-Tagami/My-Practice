@@ -1,7 +1,7 @@
 "use strict";
 {
   const cards = [];
-  const cardBox = document.getElementById("p-card-box");
+  const cardBox = document.getElementById("js-card-box");
   let flipCount = 0,
     correctCount = 0,
     countUp = 0,
@@ -87,40 +87,35 @@
     });
   });
 
-  const timer1 = document.querySelector(".p-menu__item__count-down");
+  const timerA = document.querySelector(".p-menu__item__count-down");
 
   function gameStart() {
-    if (clickReplay.classList.contains("stop")) {
-      return;
-    }
-
-    timer1.classList.add("u-border__bottom");
-    timer1.innerHTML = countDown;
+    timerA.classList.add("u-border__bottom");
+    timerA.innerHTML = countDown;
     countDown--;
     const cleartimeoutId = setTimeout(gameStart, 1000);
 
     if (countDown === -1) {
       clearTimeout(cleartimeoutId);
-      timer1.innerHTML = "始め！";
+      timerA.innerHTML = "始め！";
       replay.classList.add("u-display__flex");
       init();
-      clickReplay.classList.remove("stop2");
       countTime();
     }
   }
 
   function countTime() {
-    if (clickReplay.classList.contains("stop2")) {
+    if (countDown > -1) {
       return;
     }
-    const timer2 = document.querySelector(".p-menu__item__count-up");
-    timer2.classList.add("u-border__bottom");
-    timer2.innerHTML = `${countUp}<span>秒経過</span>`;
+    const timerB = document.querySelector(".p-menu__item__count-up");
+    timerB.classList.add("u-border__bottom");
+    timerB.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
     const cleartimeoutId = setTimeout(countTime, 1000);
     if (correctCount === 8) {
       clearTimeout(cleartimeoutId);
-      timer1.innerHTML = "終了！";
+      timerA.innerHTML = "終了！";
       showResult();
     }
   }
@@ -165,6 +160,9 @@
   }
 
   function rePlay() {
+    if (countDown > -1) {
+      return;
+    }
     cardBox.innerHTML = "";
     const resultTitle = document.getElementById("p-menu__item__result-title");
     if (resultTitle !== null) {
@@ -173,9 +171,7 @@
     countDown = 3;
     countUp = 0;
     correctCount = 0;
-    clickReplay.classList.add("stop", "stop2");
     setTimeout(gameStart, 500);
-    setTimeout(clickReplay.classList.remove("stop"), 500); //memo:ここらへんもっと良い方法ある気がする
   }
 }
 
