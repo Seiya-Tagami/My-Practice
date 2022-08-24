@@ -72,7 +72,7 @@
   }
 
   const start = document.querySelector(".p-start");
-  const replay = document.querySelector(".p-sub__item__replay");
+  const replay = document.querySelector(".p-menu__item__replay");
   const clickReplay = document.getElementById("js-replay");
   document.getElementById("js-soloPlay").addEventListener("click", function () {
     start.style.display = "none";
@@ -82,7 +82,7 @@
     });
   });
 
-  const timer1 = document.querySelector(".p-sub__item__count-down");
+  const timer1 = document.querySelector(".p-menu__item__count-down");
 
   function gameStart() {
     if (clickReplay.classList.contains("stop")) {
@@ -108,7 +108,7 @@
     if (clickReplay.classList.contains("stop2")) {
       return;
     }
-    const timer2 = document.querySelector(".p-sub__item__count-up");
+    const timer2 = document.querySelector(".p-menu__item__count-up");
     timer2.style.borderBottom = "double 5px #BDC0BA";
     timer2.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
@@ -121,13 +121,13 @@
     }
   }
 
-  const result = document.querySelector(".p-sub__item__result");
+  const result = document.querySelector(".p-menu__item__result");
 
   function showResult() {
     result.innerHTML =
-      '<span id="p-sub__item__result-title">【評価】</span><span id="p-sub__item__result-rank"></span>';
+      '<span id="p-menu__item__result-title">【評価】</span><span id="p-menu__item__result-rank"></span>';
     result.style.borderBottom = "double 5px #BDC0BA";
-    const rank = document.getElementById("p-sub__item__result-rank");
+    const rank = document.getElementById("p-menu__item__result-rank");
     if (countUp <= 35) {
       rank.innerHTML = "S+";
       rank.style.color = "#efBb24";
@@ -147,10 +147,11 @@
   }
 
   function rePlay() {
-    while (cardBox.firstChild) {
-      cardBox.removeChild(cardBox.firstChild);
-    }
-    const resultTitle = document.getElementById("p-sub__item__result-title");
+    // while (cardBox.firstChild) {
+    //   cardBox.removeChild(cardBox.firstChild);
+    // }
+    cardBox.innerHTML = "";
+    const resultTitle = document.getElementById("p-menu__item__result-title");
     if (resultTitle !== null) {
       resultTitle.textContent = "【前回の評価】"; //
     }

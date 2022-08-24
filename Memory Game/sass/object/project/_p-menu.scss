@@ -1,6 +1,6 @@
 @use "../../foundation/variables" as *;
 
-#p-sub-stage {
+.p-menu {
   width: 300px;
   height: 500px;
   margin-top: 50px;
@@ -8,7 +8,7 @@
   border-radius: 15px;
 }
 
-.p-sub__item {
+.p-menu__item {
   text-align: center;
   font-size: 64px;
   padding: 24px;
@@ -49,6 +49,6 @@
   }
 }
 
-#p-sub__item__result-rank {
+#p-menu__item__result-rank {
   font-size: 64px;
 }
