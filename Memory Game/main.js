@@ -43,8 +43,8 @@
       return;
     }
 
-    if (card.className.indexOf("open") === -1) {
-      card.className = "card open";
+    if (card.className.indexOf("is-open") === -1) {
+      card.className = "card is-open";
     } else {
       return;
     }
@@ -114,7 +114,6 @@
     timer2.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
     const cleartimeoutId = setTimeout(countTime, 1000);
-
     if (correctCount === 8) {
       clearTimeout(cleartimeoutId);
       timer1.innerHTML = "終了！";
@@ -125,8 +124,16 @@
   const result = document.querySelector(".p-menu__item__result");
 
   function showResult() {
-    result.innerHTML =
-      '<span id="p-menu__item__result-title">【評価】</span><span id="p-menu__item__result-rank"></span>';
+    // result.innerHTML =
+    //   '<span id="p-menu__item__result-title">【評価】</span><span id="p-menu__item__result-rank"></span>';
+    const createSpan01 = document.createElement("span");
+    createSpan01.setAttribute("id", "p-menu__item__result-title");
+    createSpan01.textContent = "【評価】";
+    result.appendChild(createSpan01);
+    const createSpan02 = document.createElement("span");
+    createSpan02.setAttribute("id", "p-menu__item__result-rank");
+    result.appendChild(createSpan02);
+
     result.classList.add("u-border__bottom");
     const rank = document.getElementById("p-menu__item__result-rank");
     const colorGold = "#efBb24";
@@ -142,8 +149,8 @@
       rank.innerHTML = "S";
       rank.style.color = colorPurple;
     } else if (countUp <= 45) {
-      rank.innerHTML = colorRed;
-      rank.style.color = "";
+      rank.innerHTML = "A";
+      rank.style.color = colorRed;
     } else if (countUp <= 50) {
       rank.innerHTML = "B";
       rank.style.color = colorBlue;

@@ -23,7 +23,7 @@
   border: 3px solid $color-green;
   border-radius: 12px;
 
-  &.open {
+  &.is-open {
     transform: rotateY(180deg);
   }
 

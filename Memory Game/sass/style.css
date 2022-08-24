@@ -108,7 +108,7 @@ body {
   border: 3px solid #00896C;
   border-radius: 12px;
 }
-.card.open {
+.card.is-open {
   transform: rotateY(180deg);
 }
 .card-back, .card-front {
@@ -193,7 +193,7 @@ body {
   display: none;
   gap: 8px;
 }
-.p-menu__item__replay-button {
+.p-menu__item__replay__button {
   color: #dff0ff;
   display: inline-block;
   background: #4c5483;
@@ -204,7 +204,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.p-menu__item__replay-button:hover {
+.p-menu__item__replay__button:hover {
   opacity: 1;
   transition: opacity 0.4s;
 }
