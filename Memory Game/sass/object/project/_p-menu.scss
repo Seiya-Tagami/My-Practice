@@ -1,11 +1,13 @@
 @use "../../foundation/variables" as *;
 
 .p-menu {
+  display: none;
   width: 300px;
   height: 500px;
   margin-top: 50px;
-  background-color: $color-light-purple;
+  border: 2px solid $color-black;
   border-radius: 15px;
+  background-color: $color-light-purple;
 
   &__item {
     text-align: center;
@@ -24,9 +26,8 @@
     }
 
     &__replay {
-      margin: auto auto 0px;
-      font-size: 24px;
       display: none;
+      font-size: 24px;
       gap: 8px;
 
       &__button {

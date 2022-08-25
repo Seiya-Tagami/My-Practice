@@ -1,4 +1,9 @@
 .u-display {
+
+  &__visible{
+    display: block;
+  }
+  
   &__hidden {
     display: none;
   }

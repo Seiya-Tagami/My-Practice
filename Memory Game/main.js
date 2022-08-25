@@ -77,10 +77,12 @@
   }
 
   const start = document.querySelector(".p-start");
+  const menu = document.querySelector(".p-menu");
   const replay = document.querySelector(".p-menu__item__replay");
   const clickReplay = document.getElementById("js-replay");
   document.getElementById("js-soloPlay").addEventListener("click", function () {
     start.classList.add("u-display__hidden");
+    menu.classList.add("u-display__visible");
     gameStart();
     clickReplay.addEventListener("click", function () {
       rePlay();
