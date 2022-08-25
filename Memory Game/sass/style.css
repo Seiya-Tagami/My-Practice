@@ -221,6 +221,7 @@ body {
   gap: 10px;
   width: 300px;
   margin-top: 50px;
+  display: none;
 }
 .p-triple-menu__item {
   max-width: 300px;
@@ -287,6 +288,7 @@ body {
   margin: 0 auto;
   padding-top: 100px;
   text-align: center;
+  display: none;
 }
 .p-start__container {
   background: #dff0ff;
@@ -326,6 +328,53 @@ body {
 .p-start__button__item:hover {
   opacity: 1;
   transition: opacity 0.3s;
+}
+
+.p-start-dual {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.p-start-dual__container {
+  padding: 20px;
+  border-radius: 10px;
+  background: #dff0ff;
+  color: #dff0ff;
+}
+.p-start-dual__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  max-width: 460px;
+  width: 80%;
+  height: 115px;
+  margin: 32px auto;
+  padding: 0 20px;
+  border-radius: 10px;
+  background: #4c5483;
+  font-size: 24px;
+}
+.p-start-dual__input {
+  width: 80%;
+}
+.p-start-dual__determine {
+  width: 144px;
+  height: 53px;
+  margin: 0 auto;
+  border: 4px solid #A0522D;
+  border-radius: 15px;
+  background: #4c5483;
+  font-size: 24px;
+  text-align: center;
+  opacity: 0.9;
+}
+.p-start-dual__determine:hover {
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+.p-start-dual__determine p {
+  line-height: 53px;
 }
 
 .u-display__visible {
