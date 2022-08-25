@@ -10,7 +10,7 @@
     countDown = 3;
 
   function init() {
-    const cardpairNum = 8;
+    const cardpairNum = 8; //カード生成
     for (let i = 1; i <= cardpairNum; i++) {
       // cards[cards.length] = createCard(i);
       // cards[cards.length] = createCard(i);
@@ -174,29 +174,6 @@
     setTimeout(gameStart, 500);
   }
 
-  const startDual = document.querySelector(".p-start-dual");
-  const tripleMenu = document.querySelector(".p-triple-menu");
-  document.getElementById('js-dualPlay').addEventListener('click', ()=>{
-    start.classList.add("u-display__hidden");
-    startDual.classList.add("u-display__visible");
-  })
-  
-  const determine = document.querySelector(".p-start-dual__determine");
-  const player1 = document.getElementById("js-yourname1").value;
-  const player2 = document.getElementById("js-yourname2").value;
-
-  function reflect(){
-    const reflectedyourName1 = document.getElementById('js-reflectedName1');
-    const reflectedyourName2 = document.getElementById('js-reflectedName2');
-    reflectedyourName1.textContent = player1;
-    reflectedyourName2.textContent = player2;
-  }
-
-  determine.addEventListener('click', ()=>{
-    reflect();
-    startDual.classList.add("u-display__hidden")
-    tripleMenu.classList.add("u-display__flex");
-  })  
 }
 
 //2人プレイモードは対戦形式でポイント制 もう一つ変数を用意してあげて、剰余で条件分岐かな？
