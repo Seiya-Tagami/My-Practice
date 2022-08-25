@@ -9,8 +9,8 @@
     secondCard = null,
     countDown = 3;
 
+  const cardpairNum = 8; //カード生成
   function init() {
-    const cardpairNum = 8; //カード生成
     for (let i = 1; i <= cardpairNum; i++) {
       // cards[cards.length] = createCard(i);
       // cards[cards.length] = createCard(i);
@@ -115,7 +115,7 @@
     timerB.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
     const cleartimeoutId = setTimeout(countTime, 1000);
-    if (correctCount === 8) {
+    if (correctCount === cardpairNum) {
       clearTimeout(cleartimeoutId);
       timerA.innerHTML = "終了！";
       showResult();
@@ -173,7 +173,6 @@
     correctCount = 0;
     setTimeout(gameStart, 500);
   }
-
 }
 
 //2人プレイモードは対戦形式でポイント制 もう一つ変数を用意してあげて、剰余で条件分岐かな？

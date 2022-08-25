@@ -4,12 +4,15 @@
   const cards = [];
   const cardBox = document.getElementById("js-card-box");
   let flipCount = 0,
-    correctCount = 0,
+    totalcorrectCount = 0,
+    player1correctCount = 0,
+    player2correctCount = 0,
+    turnCount = 0,
     firstCard = null,
     secondCard = null;
 
+  const cardpairNum = 8; //カード生成
   function init() {
-    const cardpairNum = 8; //カード生成
     for (let i = 1; i <= cardpairNum; i++) {
       const cardA = createCard(i);
       const cardB = createCard(i);
@@ -53,6 +56,8 @@
       firstCard = card;
     } else {
       secondCard = card;
+      turnCount++;
+      console.log(turnCount);
       setTimeout(function () {
         judge();
       }, 900); //memo:カードをめくり終わった時に実行
@@ -63,13 +68,52 @@
     if (
       firstCard.children[1].textContent === secondCard.children[1].textContent
     ) {
-      correctCount++;
+      if (turnCount % 2 === 1) {
+        player1correctCount++;
+        document.getElementById(
+          "js-player1-score"
+        ).textContent = `得点 ${player1correctCount}点`;
+      }
+      if (turnCount % 2 === 0) {
+        player2correctCount++;
+        document.getElementById(
+          "js-player2-score"
+        ).textContent = `得点 ${player2correctCount}点`;
+      }
+      totalcorrectCount++;
     } else {
       firstCard.classList.remove("is-open");
       secondCard.classList.remove("is-open");
     }
     firstCard = null;
     secondCard = null;
+
+    if (totalcorrectCount === cardpairNum) {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    const resultPlayer1 = document.getElementById("js-player1-score");
+    const resultPlayer2 = document.getElementById("js-player2-score");
+    if (player1correctCount > player2correctCount) {
+      resultPlayer1.textContent = "あなたの<br>勝利です";
+      resultPlayer1.classList.add("p-triple-menu__item__content__win");
+      resultPlayer2.textContent = "あなたの<br>負けです";
+      resultPlayer2.classList.add("p-triple-menu__item__content__lose");
+    }
+    if (player1correctCount === player2correctCount) {
+      resultPlayer1.textContent = "引き分け";
+      resultPlayer1.classList.add("p-triple-menu__item__content__win");
+      resultPlayer2.textContent = "引き分け";
+      resultPlayer2.classList.add("p-triple-menu__item__content__lose");
+    }
+    if (player1correctCount < player2correctCount) {
+      resultPlayer1.innerHTML = "あなたの<br>負けです";
+      resultPlayer1.classList.add("p-triple-menu__item__content__lose");
+      resultPlayer2.innerHTML = "あなたの<br>勝利です";
+      resultPlayer2.classList.add("p-triple-menu__item__content__win");
+    }
   }
 
   const start = document.querySelector(".p-start");
