@@ -288,7 +288,6 @@ body {
   margin: 0 auto;
   padding-top: 100px;
   text-align: center;
-  display: none;
 }
 .p-start__container {
   background: #dff0ff;
@@ -334,6 +333,7 @@ body {
   width: 70%;
   margin: 0 auto;
   padding-top: 100px;
+  display: none;
 }
 .p-start-dual__container {
   padding: 20px;
@@ -368,6 +368,11 @@ body {
   font-size: 24px;
   text-align: center;
   opacity: 0.9;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .p-start-dual__determine:hover {
   opacity: 1;

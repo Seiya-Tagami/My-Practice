@@ -4,6 +4,7 @@
   width: 70%;
   margin: 0 auto;
   padding-top: 100px;
+  display: none;
 
   &__container {
     padding: 20px;
@@ -41,6 +42,8 @@
     font-size: 24px;
     text-align: center;
     opacity: 0.9;
+    cursor: pointer;
+    user-select: none;
 
     &:hover {
       opacity: 1;
