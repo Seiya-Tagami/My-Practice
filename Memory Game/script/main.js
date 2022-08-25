@@ -168,11 +168,13 @@
     if (resultTitle !== null) {
       resultTitle.textContent = "【前回の評価】";
     }
+    flipCount = 0;
+    firstCard = null;
+    secondCard = null;
     countDown = 3;
     countUp = 0;
     correctCount = 0;
     setTimeout(gameStart, 500);
   }
 }
-
 //2人プレイモードは対戦形式でポイント制 もう一つ変数を用意してあげて、剰余で条件分岐かな？

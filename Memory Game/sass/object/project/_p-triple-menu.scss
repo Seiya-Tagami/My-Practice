@@ -7,6 +7,7 @@
   width: 300px;
   margin-top: 50px;
   display: none;
+  user-select: none;
 
   &__item {
     max-width: 300px;
@@ -40,9 +41,11 @@
         @extend .p-triple-menu__item__content__win;
         color: $color-dark-blue;
       }
+      &__draw {
+        @extend .p-triple-menu__item__content__win;
+        color: $color-green;
+      }
     }
-
-
 
     &-replay {
       max-width: 300px;
@@ -51,7 +54,7 @@
       border: 2px solid $color-black;
       border-radius: 15px;
       background-color: $color-light-purple;
-      
+
       &__container {
         display: flex;
         gap: 8px;

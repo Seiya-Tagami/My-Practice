@@ -97,16 +97,16 @@
     const resultPlayer1 = document.getElementById("js-player1-score");
     const resultPlayer2 = document.getElementById("js-player2-score");
     if (player1correctCount > player2correctCount) {
-      resultPlayer1.textContent = "あなたの<br>勝利です";
+      resultPlayer1.innerHTML = "あなたの<br>勝利です";
       resultPlayer1.classList.add("p-triple-menu__item__content__win");
-      resultPlayer2.textContent = "あなたの<br>負けです";
+      resultPlayer2.innerHTML = "あなたの<br>負けです";
       resultPlayer2.classList.add("p-triple-menu__item__content__lose");
     }
     if (player1correctCount === player2correctCount) {
       resultPlayer1.textContent = "引き分け";
-      resultPlayer1.classList.add("p-triple-menu__item__content__win");
+      resultPlayer1.classList.add("p-triple-menu__item__content__draw");
       resultPlayer2.textContent = "引き分け";
-      resultPlayer2.classList.add("p-triple-menu__item__content__lose");
+      resultPlayer2.classList.add("p-triple-menu__item__content__draw");
     }
     if (player1correctCount < player2correctCount) {
       resultPlayer1.innerHTML = "あなたの<br>負けです";
@@ -124,7 +124,7 @@
     startDual.classList.add("u-display__visible");
   });
 
-  const determine = document.querySelector(".p-start-dual__determine");
+  const determine = document.querySelector(".p-start-dual__buttons-determine");
 
   function reflect() {
     const player1 = document.getElementById("js-yourname1").value;
@@ -144,6 +144,32 @@
       tripleMenu.classList.add("u-display__flex");
       reflect();
       init();
+    } else {
+      alert("名前を入力してください");
     }
   });
+
+  const clickReplay = document.getElementById("js-replay2");
+  clickReplay.addEventListener("click", () => {
+    rePlay();
+  });
+
+  function rePlay() {
+    cardBox.innerHTML = "";
+    startDual.classList.remove("u-display__hidden");
+    startDual.classList.add("u-display__visible");
+    tripleMenu.classList.remove("u-display__flex");
+    tripleMenu.classList.add("u-display__hidden");
+    flipCount = 0;
+    firstCard = null;
+    secondCard = null;
+    player1correctCount = 0;
+    document.getElementById("js-player1-score").textContent = "得点 0点";
+    document.getElementById("js-player2-score").textContent = "得点 0点";
+    player2correctCount = 0;
+    totalcorrectCount = 0;
+    turnCount = 0;
+    document.getElementById("js-yourname1").value = "";
+    document.getElementById("js-yourname2").value = "";
+  }
 }
