@@ -52,20 +52,32 @@
     }
   }
 
-  function showYourturn(){
-    const player1Yourturn = document.getElementById('js-player1-your-turn');
-    const player2Yourturn = document.getElementById('js-player2-your-turn');
-    if(turnCount % 2 === 1){
-      player2Yourturn.classList.remove('p-triple-menu__item__content__your-turn');
+  function showYourturn() {
+    const player1Yourturn = document.getElementById("js-player1-your-turn");
+    const player2Yourturn = document.getElementById("js-player2-your-turn");
+    if (turnCount % 2 === 0) {
+      player2Yourturn.classList.remove(
+        "p-triple-menu__item__content__your-turn"
+      );
       player2Yourturn.textContent = "";
-      player1Yourturn.classList.add('p-triple-menu__item__content__your-turn');
-      player1Yourturn.textContent = "あなたの番です";
+      if (totalcorrectCount !== cardpairNum) {
+        player1Yourturn.classList.add(
+          "p-triple-menu__item__content__your-turn"
+        );
+        player1Yourturn.textContent = "あなたの番です";
+      }
     }
-    if(turnCount % 2 === 0){
-      player1Yourturn.classList.remove('p-triple-menu__item__content__your-turn');
+    if (turnCount % 2 === 1) {
+      player1Yourturn.classList.remove(
+        "p-triple-menu__item__content__your-turn"
+      );
       player1Yourturn.textContent = "";
-      player2Yourturn.classList.add('p-triple-menu__item__content__your-turn');
-      player2Yourturn.textContent = "あなたの番です";
+      if (totalcorrectCount !== cardpairNum) {
+        player2Yourturn.classList.add(
+          "p-triple-menu__item__content__your-turn"
+        );
+        player2Yourturn.textContent = "あなたの番です";
+      }
     }
   }
 
@@ -101,26 +113,26 @@
         document.getElementById(
           "js-player1-score"
         ).textContent = `得点 ${player1correctCount}点`;
-        // turnCount++;
+        setTimeout(showYourturn, 400);
       }
       if (turnCount % 2 === 0) {
         player2correctCount++;
         document.getElementById(
           "js-player2-score"
         ).textContent = `得点 ${player2correctCount}点`;
-        // turnCount++;
+        setTimeout(showYourturn, 400);
       }
       totalcorrectCount++;
     } else {
       firstCard.classList.remove("is-open");
       secondCard.classList.remove("is-open");
-      // turnCount++;
+      setTimeout(showYourturn, 400);
     }
     firstCard = null;
     secondCard = null;
 
     if (totalcorrectCount === cardpairNum) {
-      showResult();
+      setTimeout(showResult,500);
     }
   }
 
@@ -166,6 +178,8 @@
       tripleMenu.classList.add("u-display__flex");
       reflect();
       init();
+      showYourturn();
+      console.log(turnCount);
     } else {
       alert("名前を入力してください");
     }
