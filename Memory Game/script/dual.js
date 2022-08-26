@@ -55,7 +55,7 @@
   function showYourturn() {
     const player1Yourturn = document.getElementById("js-player1-your-turn");
     const player2Yourturn = document.getElementById("js-player2-your-turn");
-    if (turnCount % 2 === 0) {
+    if (turnCount % 2 === 0) { //0
       player2Yourturn.classList.remove(
         "p-triple-menu__item__content__your-turn"
       );
@@ -67,7 +67,7 @@
         player1Yourturn.textContent = "あなたの番です";
       }
     }
-    if (turnCount % 2 === 1) {
+    if (turnCount % 2 === 1) { 
       player1Yourturn.classList.remove(
         "p-triple-menu__item__content__your-turn"
       );
@@ -97,7 +97,6 @@
     } else {
       secondCard = card;
       turnCount++;
-      console.log(turnCount);
       setTimeout(function () {
         judge();
       }, 900); //memo:カードをめくり終わった時に実行
@@ -108,14 +107,14 @@
     if (
       firstCard.children[1].textContent === secondCard.children[1].textContent
     ) {
-      if (turnCount % 2 === 1) {
+      if (turnCount % 2 === 1) { 
         player1correctCount++;
         document.getElementById(
           "js-player1-score"
         ).textContent = `得点 ${player1correctCount}点`;
         setTimeout(showYourturn, 400);
       }
-      if (turnCount % 2 === 0) {
+      if (turnCount % 2 === 0) { 
         player2correctCount++;
         document.getElementById(
           "js-player2-score"
@@ -132,7 +131,7 @@
     secondCard = null;
 
     if (totalcorrectCount === cardpairNum) {
-      setTimeout(showResult,500);
+      setTimeout(showResult, 500);
     }
   }
 
@@ -168,7 +167,6 @@
   });
 
   const determine = document.querySelector(".p-start-dual__buttons-determine");
-
   determine.addEventListener("click", () => {
     if (
       document.getElementById("js-yourname1").value !== "" &&
@@ -179,7 +177,6 @@
       reflect();
       init();
       showYourturn();
-      console.log(turnCount);
     } else {
       alert("名前を入力してください");
     }
