@@ -11,7 +11,7 @@
 
   const cardpairNum = 8; //カード生成
   function init() {
-    for (let i = 1; i <= cardpairNum; i++) {
+    for (let i = 0; i < cardpairNum; i++) {
       // cards[cards.length] = createCard(i);
       // cards[cards.length] = createCard(i);
       const cardA = createCard(i);
@@ -27,11 +27,22 @@
   }
 
   function createCard(num) {
+    const cardInner = [
+      "POSSE",
+      "HTML",
+      "CSS",
+      "JS",
+      "PHP",
+      "SQL",
+      "Python",
+      "Laravel",
+    ];
+    
     const inner =
       '<div class="p-card-back">？</div><div class="p-card-front">*</div>';
     const card = document.createElement("div");
     card.className = "p-card";
-    card.innerHTML = inner.replace("*", num);
+    card.innerHTML = inner.replace("*", cardInner[num]);
     card.addEventListener("click", function () {
       flipCard(this);
     });

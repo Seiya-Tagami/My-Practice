@@ -13,7 +13,7 @@
 
   const cardpairNum = 8; //カード生成
   function init() {
-    for (let i = 1; i <= cardpairNum; i++) {
+    for (let i = 0; i < cardpairNum; i++) {
       const cardA = createCard(i);
       const cardB = createCard(i);
       cards.push(cardA);
@@ -26,11 +26,22 @@
     }
 
     function createCard(num) {
+      const cardInner = [
+        "POSSE",
+        "HTML",
+        "CSS",
+        "JS",
+        "PHP",
+        "SQL",
+        "Python",
+        "Laravel",
+      ];
+
       const inner =
         '<div class="p-card-back">？</div><div class="p-card-front">*</div>';
       const card = document.createElement("div");
       card.className = "p-card";
-      card.innerHTML = inner.replace("*", num);
+      card.innerHTML = inner.replace("*", cardInner[num]);
       card.addEventListener("click", function () {
         flipCard(this);
       });
@@ -38,6 +49,23 @@
       container.className = "p-card-container";
       container.appendChild(card);
       return container;
+    }
+  }
+
+  function showYourturn(){
+    const player1Yourturn = document.getElementById('js-player1-your-turn');
+    const player2Yourturn = document.getElementById('js-player2-your-turn');
+    if(turnCount % 2 === 1){
+      player2Yourturn.classList.remove('p-triple-menu__item__content__your-turn');
+      player2Yourturn.textContent = "";
+      player1Yourturn.classList.add('p-triple-menu__item__content__your-turn');
+      player1Yourturn.textContent = "あなたの番です";
+    }
+    if(turnCount % 2 === 0){
+      player1Yourturn.classList.remove('p-triple-menu__item__content__your-turn');
+      player1Yourturn.textContent = "";
+      player2Yourturn.classList.add('p-triple-menu__item__content__your-turn');
+      player2Yourturn.textContent = "あなたの番です";
     }
   }
 
@@ -73,17 +101,20 @@
         document.getElementById(
           "js-player1-score"
         ).textContent = `得点 ${player1correctCount}点`;
+        // turnCount++;
       }
       if (turnCount % 2 === 0) {
         player2correctCount++;
         document.getElementById(
           "js-player2-score"
         ).textContent = `得点 ${player2correctCount}点`;
+        // turnCount++;
       }
       totalcorrectCount++;
     } else {
       firstCard.classList.remove("is-open");
       secondCard.classList.remove("is-open");
+      // turnCount++;
     }
     firstCard = null;
     secondCard = null;
@@ -93,9 +124,9 @@
     }
   }
 
+  const resultPlayer1 = document.getElementById("js-player1-result");
+  const resultPlayer2 = document.getElementById("js-player2-result");
   function showResult() {
-    const resultPlayer1 = document.getElementById("js-player1-score");
-    const resultPlayer2 = document.getElementById("js-player2-score");
     if (player1correctCount > player2correctCount) {
       resultPlayer1.innerHTML = "あなたの<br>勝利です";
       resultPlayer1.classList.add("p-triple-menu__item__content__win");
@@ -126,15 +157,6 @@
 
   const determine = document.querySelector(".p-start-dual__buttons-determine");
 
-  function reflect() {
-    const player1 = document.getElementById("js-yourname1").value;
-    const player2 = document.getElementById("js-yourname2").value;
-    const reflectedyourName1 = document.getElementById("js-reflectedName1");
-    const reflectedyourName2 = document.getElementById("js-reflectedName2");
-    reflectedyourName1.textContent = player1;
-    reflectedyourName2.textContent = player2;
-  }
-
   determine.addEventListener("click", () => {
     if (
       document.getElementById("js-yourname1").value !== "" &&
@@ -148,6 +170,15 @@
       alert("名前を入力してください");
     }
   });
+
+  function reflect() {
+    const player1 = document.getElementById("js-yourname1").value;
+    const player2 = document.getElementById("js-yourname2").value;
+    const reflectedyourName1 = document.getElementById("js-reflectedName1");
+    const reflectedyourName2 = document.getElementById("js-reflectedName2");
+    reflectedyourName1.textContent = player1;
+    reflectedyourName2.textContent = player2;
+  }
 
   const clickReplay = document.getElementById("js-replay2");
   clickReplay.addEventListener("click", () => {
@@ -171,5 +202,9 @@
     turnCount = 0;
     document.getElementById("js-yourname1").value = "";
     document.getElementById("js-yourname2").value = "";
+    resultPlayer1.classList.remove(...resultPlayer1.classList);
+    resultPlayer1.textContent = "";
+    resultPlayer2.classList.remove(...resultPlayer2.classList);
+    resultPlayer2.textContent = "";
   }
 }
