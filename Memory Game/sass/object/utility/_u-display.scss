@@ -1,14 +1,14 @@
 .u-display {
 
-  &__visible{
+  &-block{
     display: block;
   }
   
-  &__hidden {
+  &-hidden {
     display: none;
   }
 
-  &__flex{
+  &-flex{
     display: flex;
   }
 }

@@ -55,29 +55,23 @@
   function showYourturn() {
     const player1Yourturn = document.getElementById("js-player1-your-turn");
     const player2Yourturn = document.getElementById("js-player2-your-turn");
-    if (turnCount % 2 === 0) {
-      //0
-      player2Yourturn.classList.remove(
-        "p-triple-menu__item__content__your-turn"
+    if (turnCount % 2 === 0) { //0
+      player2Yourturn.classList.add('u-display-hidden'
       );
-      player2Yourturn.textContent = "";
       if (totalcorrectCount !== cardpairNum) {
-        player1Yourturn.classList.add(
-          "p-triple-menu__item__content__your-turn"
+        player1Yourturn.classList.remove(
+          "u-display-hidden"
         );
-        player1Yourturn.textContent = "あなたの番です";
       }
     }
     if (turnCount % 2 === 1) {
-      player1Yourturn.classList.remove(
-        "p-triple-menu__item__content__your-turn"
+      player1Yourturn.classList.add(
+        "u-display-hidden"
       );
-      player1Yourturn.textContent = "";
       if (totalcorrectCount !== cardpairNum) {
-        player2Yourturn.classList.add(
-          "p-triple-menu__item__content__your-turn"
+        player2Yourturn.classList.remove(
+          "u-display-hidden"
         );
-        player2Yourturn.textContent = "あなたの番です";
       }
     }
   }
@@ -160,8 +154,8 @@
   const startDual = document.querySelector(".p-start-dual");
   const tripleMenu = document.querySelector(".p-triple-menu");
   document.getElementById("js-dualPlay").addEventListener("click", () => {
-    start.classList.add("u-display__hidden");
-    startDual.classList.add("u-display__visible");
+    start.classList.add("u-display-hidden");
+    startDual.classList.add("u-display-block");
   });
 
   const determine = document.querySelector(".p-start-dual__buttons-determine");
@@ -170,15 +164,15 @@
       document.getElementById("js-yourname1").value !== "" &&
       document.getElementById("js-yourname2").value !== ""
     ) {
-      startDual.classList.add("u-display__hidden");
-      tripleMenu.classList.add("u-display__flex");
+      startDual.classList.add("u-display-hidden");
+      tripleMenu.classList.add("u-display-flex");
       reflect();
       init();
       showYourturn();
-    } else if(document.getElementById("js-yourname1").value.length >= 8 || document.getElementById("js-yourname2").value.length >= 8){
+    } else if (document.getElementById("js-yourname1").value.length >= 8 && document.getElementById("js-yourname2").value.length >= 8){
       alert("名前は７文字以内です！！！")
     } else {
-      alert("名前を入力すべし")
+      alert("名前を入力シテネ")
     }
     TODO:条件分岐見直し
   });
@@ -203,10 +197,10 @@
 
   function changeStage() {
     cardBox.innerHTML = "";
-    startDual.classList.remove("u-display__hidden");
-    startDual.classList.add("u-display__visible");
-    tripleMenu.classList.remove("u-display__flex");
-    tripleMenu.classList.add("u-display__hidden");
+    startDual.classList.remove("u-display-hidden");
+    startDual.classList.add("u-display-block");
+    tripleMenu.classList.remove("u-display-flex");
+    tripleMenu.classList.add("u-display-hidden");
     firstCard = null;
     secondCard = null;
   }

@@ -92,8 +92,8 @@
   const replay = document.querySelector(".p-menu__item__replay");
   const clickReplay = document.getElementById("js-replay");
   document.getElementById("js-soloPlay").addEventListener("click", function () {
-    start.classList.add("u-display__hidden");
-    menu.classList.add("u-display__visible");
+    start.classList.add("u-display-hidden");
+    menu.classList.add("u-display-block");
     gameStart();
     clickReplay.addEventListener("click", function () {
       rePlay();
@@ -111,7 +111,7 @@
     if (countDown === -1) {
       clearTimeout(cleartimeoutId);
       timerA.innerHTML = "始め！";
-      replay.classList.add("u-display__flex");
+      replay.classList.add("u-display-flex");
       init();
       countTime();
     }
