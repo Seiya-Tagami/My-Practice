@@ -75,6 +75,11 @@ body {
   background: #4c5483;
 }
 
+p,
+span {
+  font-family: "Hina Mincho", sans-serif;
+}
+
 .l-main {
   display: flex;
   justify-content: center;
@@ -192,19 +197,22 @@ body {
 }
 .p-menu__item__replay {
   display: none;
-  font-size: 24px;
   gap: 8px;
 }
 .p-menu__item__replay__button {
-  color: #dff0ff;
   display: inline-block;
   background: #4c5483;
+  color: #dff0ff;
   border: 3px solid #A0522D;
   border-radius: 5px;
   padding: 4px 10px;
+  font-size: 24px;
   opacity: 0.8;
   text-decoration: none;
   cursor: pointer;
+}
+.p-menu__item__replay__button p {
+  color: inherit;
 }
 .p-menu__item__replay__button:hover {
   opacity: 1;
@@ -280,7 +288,6 @@ body {
 .p-triple-menu__item-replay__container {
   display: flex;
   gap: 8px;
-  font-size: 24px;
   padding: 5px 16px;
 }
 .p-triple-menu__item-replay__button {
@@ -289,9 +296,13 @@ body {
   border: 3px solid #A0522D;
   border-radius: 5px;
   padding: 4px 10px;
+  font-size: 24px;
   opacity: 0.8;
   text-decoration: none;
   cursor: pointer;
+}
+.p-triple-menu__item-replay__button p {
+  color: inherit;
 }
 .p-triple-menu__item-replay__button:hover {
   opacity: 1;
@@ -320,12 +331,10 @@ body {
           user-select: none;
 }
 .p-start__button {
-  font-size: 24px;
   display: flex;
   justify-content: center;
   margin-top: 60px;
   gap: 20px;
-  color: #dff0ff;
 }
 .p-start__button__item {
   padding: 16px;
@@ -338,6 +347,10 @@ body {
   cursor: pointer;
   border: 5px solid #A0522D;
   border-radius: 5px;
+}
+.p-start__button__item p {
+  font-size: 24px;
+  color: #dff0ff;
 }
 .p-start__button__item:hover {
   opacity: 1;
@@ -390,6 +403,9 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.p-start-dual__buttons-determine p {
+  color: #dff0ff;
 }
 .p-start-dual__buttons-determine:hover {
   opacity: 1;

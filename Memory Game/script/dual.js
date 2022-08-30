@@ -38,10 +38,10 @@
       ];
 
       const inner =
-        '<div class="p-card-back">？</div><div class="p-card-front">*</div>';
+        `<div class="p-card-back">？</div><div class="p-card-front">${cardInner[num]}</div>`;
       const card = document.createElement("div");
       card.className = "p-card";
-      card.innerHTML = inner.replace("*", cardInner[num]);
+      card.innerHTML = inner;
       card.addEventListener("click", function () {
         flipCard(this);
       });
@@ -55,7 +55,8 @@
   function showYourturn() {
     const player1Yourturn = document.getElementById("js-player1-your-turn");
     const player2Yourturn = document.getElementById("js-player2-your-turn");
-    if (turnCount % 2 === 0) { //0
+    if (turnCount % 2 === 0) {
+      //0
       player2Yourturn.classList.remove(
         "p-triple-menu__item__content__your-turn"
       );
@@ -67,7 +68,7 @@
         player1Yourturn.textContent = "あなたの番です";
       }
     }
-    if (turnCount % 2 === 1) { 
+    if (turnCount % 2 === 1) {
       player1Yourturn.classList.remove(
         "p-triple-menu__item__content__your-turn"
       );
@@ -82,24 +83,21 @@
   }
 
   function flipCard(card) {
-    if (firstCard != null && secondCard != null) {
+    if (firstCard && secondCard) { //memo:こういう風にも書けるのか笑
       return;
     }
 
-    if (card.className.indexOf("is-open") === -1) {
-      card.classList.add("is-open");
-    } else {
+    if (card.className.indexOf("is-open") !== -1) {
       return;
-    }
+    } 
+    card.classList.add("is-open");
     flipCount++;
     if (flipCount % 2 === 1) {
       firstCard = card;
     } else {
       secondCard = card;
       turnCount++;
-      setTimeout(function () {
-        judge();
-      }, 900); //memo:カードをめくり終わった時に実行
+      setTimeout(judge, 900); //memo:カードをめくり終わった時に実行
     }
   }
 
@@ -107,14 +105,14 @@
     if (
       firstCard.children[1].textContent === secondCard.children[1].textContent
     ) {
-      if (turnCount % 2 === 1) { 
+      if (turnCount % 2 === 1) {
         player1correctCount++;
         document.getElementById(
           "js-player1-score"
         ).textContent = `得点 ${player1correctCount}点`;
         setTimeout(showYourturn, 400);
       }
-      if (turnCount % 2 === 0) { 
+      if (turnCount % 2 === 0) {
         player2correctCount++;
         document.getElementById(
           "js-player2-score"
@@ -177,9 +175,12 @@
       reflect();
       init();
       showYourturn();
+    } else if(document.getElementById("js-yourname1").value.length >= 8 || document.getElementById("js-yourname2").value.length >= 8){
+      alert("名前は７文字以内です！！！")
     } else {
-      alert("名前を入力してください");
+      alert("名前を入力すべし")
     }
+    TODO:条件分岐見直し
   });
 
   function reflect() {
@@ -192,25 +193,35 @@
   }
 
   const clickReplay = document.getElementById("js-replay2");
-  clickReplay.addEventListener("click", () => {
-    rePlay();
-  });
+  clickReplay.addEventListener("click", rePlay); //()を付けると即時関数になってしまう
 
   function rePlay() {
+    changeStage();
+    resetCount();
+    resetStyles();
+  }
+
+  function changeStage() {
     cardBox.innerHTML = "";
     startDual.classList.remove("u-display__hidden");
     startDual.classList.add("u-display__visible");
     tripleMenu.classList.remove("u-display__flex");
     tripleMenu.classList.add("u-display__hidden");
-    flipCount = 0;
     firstCard = null;
     secondCard = null;
+  }
+
+  function resetCount() {
+    flipCount = 0;
     player1correctCount = 0;
-    document.getElementById("js-player1-score").textContent = "得点 0点";
-    document.getElementById("js-player2-score").textContent = "得点 0点";
     player2correctCount = 0;
     totalcorrectCount = 0;
     turnCount = 0;
+  }
+
+  function resetStyles() {
+    document.getElementById("js-player1-score").textContent = "得点 0点";
+    document.getElementById("js-player2-score").textContent = "得点 0点";
     document.getElementById("js-yourname1").value = "";
     document.getElementById("js-yourname2").value = "";
     resultPlayer1.classList.remove(...resultPlayer1.classList);

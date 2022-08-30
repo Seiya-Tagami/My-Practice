@@ -27,19 +27,23 @@
 
     &__replay {
       display: none;
-      font-size: 24px;
       gap: 8px;
 
       &__button {
-        color: $color-light-gray;
         display: inline-block;
         background: $color-purple;
+        color: $color-light-gray;
         border: 3px solid $color-brawn;
         border-radius: 5px;
         padding: 4px 10px;
+        font-size: 24px;
         opacity: 0.8;
         text-decoration: none;
         cursor: pointer;
+
+        & p {
+          color: inherit;
+        }
 
         &:hover {
           opacity: 1;

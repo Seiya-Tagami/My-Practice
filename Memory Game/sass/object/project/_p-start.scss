@@ -21,12 +21,10 @@
   }
 
   &__button {
-    font-size: 24px;
     display: flex;
     justify-content: center;
     margin-top: 60px;
     gap: 20px;
-    color: $color-light-gray;
 
     &__item {
       padding: 16px;
@@ -36,6 +34,11 @@
       cursor: pointer;
       border: 5px solid $color-brawn;
       border-radius: 5px;
+
+      & p {
+        font-size: 24px;
+        color: $color-light-gray;
+      }
 
       &:hover {
         opacity: 1;

@@ -66,7 +66,6 @@
       &__container {
         display: flex;
         gap: 8px;
-        font-size: 24px;
         padding: 5px 16px;
       }
 
@@ -76,9 +75,14 @@
         border: 3px solid $color-brawn;
         border-radius: 5px;
         padding: 4px 10px;
+        font-size: 24px;
         opacity: 0.8;
         text-decoration: none;
         cursor: pointer;
+
+        & p {
+          color: inherit;
+        }
 
         &:hover {
           opacity: 1;

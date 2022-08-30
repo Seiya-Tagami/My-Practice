@@ -47,6 +47,10 @@
       cursor: pointer;
       user-select: none;
 
+      & p {
+        color: $color-light-gray;
+      }
+
       &:hover {
         opacity: 1;
         transition: opacity 0.4s;
