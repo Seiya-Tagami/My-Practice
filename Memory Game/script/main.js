@@ -9,9 +9,9 @@
     secondCard = null,
     countDown = 3;
 
+  const cardpairNum = 8; //カード生成
   function init() {
-    const cardpairNum = 8;
-    for (let i = 1; i <= cardpairNum; i++) {
+    for (let i = 0; i < cardpairNum; i++) {
       // cards[cards.length] = createCard(i);
       // cards[cards.length] = createCard(i);
       const cardA = createCard(i);
@@ -27,11 +27,22 @@
   }
 
   function createCard(num) {
+    const cardInner = [
+      "POSSE",
+      "HTML",
+      "CSS",
+      "JS",
+      "PHP",
+      "SQL",
+      "Python",
+      "Laravel",
+    ];
+    
     const inner =
       '<div class="p-card-back">？</div><div class="p-card-front">*</div>';
     const card = document.createElement("div");
     card.className = "p-card";
-    card.innerHTML = inner.replace("*", num);
+    card.innerHTML = inner.replace("*", cardInner[num]);
     card.addEventListener("click", function () {
       flipCard(this);
     });
@@ -77,10 +88,12 @@
   }
 
   const start = document.querySelector(".p-start");
+  const menu = document.querySelector(".p-menu");
   const replay = document.querySelector(".p-menu__item__replay");
   const clickReplay = document.getElementById("js-replay");
   document.getElementById("js-soloPlay").addEventListener("click", function () {
-    start.classList.add("u-display__hidden");
+    start.classList.add("u-display-hidden");
+    menu.classList.add("u-display-block");
     gameStart();
     clickReplay.addEventListener("click", function () {
       rePlay();
@@ -98,7 +111,7 @@
     if (countDown === -1) {
       clearTimeout(cleartimeoutId);
       timerA.innerHTML = "始め！";
-      replay.classList.add("u-display__flex");
+      replay.classList.add("u-display-flex");
       init();
       countTime();
     }
@@ -113,7 +126,7 @@
     timerB.innerHTML = `${countUp}<span>秒経過</span>`;
     countUp++;
     const cleartimeoutId = setTimeout(countTime, 1000);
-    if (correctCount === 8) {
+    if (correctCount === cardpairNum) {
       clearTimeout(cleartimeoutId);
       timerA.innerHTML = "終了！";
       showResult();
@@ -123,8 +136,6 @@
   const result = document.querySelector(".p-menu__item__result");
 
   function showResult() {
-    // result.innerHTML =
-    //   '<span id="p-menu__item__result-title">【評価】</span><span id="p-menu__item__result-rank"></span>';
     const createSpan01 = document.createElement("span");
     createSpan01.setAttribute("id", "p-menu__item__result-title");
     createSpan01.textContent = "【評価】";
@@ -168,11 +179,13 @@
     if (resultTitle !== null) {
       resultTitle.textContent = "【前回の評価】";
     }
+    flipCount = 0;
+    firstCard = null;
+    secondCard = null;
     countDown = 3;
     countUp = 0;
     correctCount = 0;
     setTimeout(gameStart, 500);
   }
 }
-
 //2人プレイモードは対戦形式でポイント制 もう一つ変数を用意してあげて、剰余で条件分岐かな？
